@@ -1,12 +1,12 @@
 #!/bin/bash
 # Plane Tracker Kiosk Startup Script
-# Starts Node.js backend, Python static server, and Chromium in kiosk mode
+# Starts Node.js backend, http-server for frontend, and Chromium in kiosk mode
 
 # Start Node.js backend (proxy/API) in the background, log output
 nohup node server.js > server.log 2>&1 &
 
-# Start Python static server for frontend in the background (port 8080), log output
-nohup python3 -m http.server 8080 > static.log 2>&1 &
+# Start http-server for frontend in the background (port 8080), log output
+nohup http-server -p 8080 > static.log 2>&1 &
 
 # Wait a moment for both servers to start
 sleep 2
