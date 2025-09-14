@@ -1,0 +1,25 @@
+# Node
+node_modules/
+pnpm-lock.yaml
+npm-debug.log
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Env
+.env
+
+# VS Code
+.vscode/
+
+# Build
+/dist/
+/build/
+
+# Misc
+*.swp
+*.tmp
+locations.json

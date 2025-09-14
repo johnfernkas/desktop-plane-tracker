@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #eaf1fb 0%, #f7f8fa 100%);
+  --card-bg: rgba(255,255,255,0.55);
+  --card-border: rgba(255,255,255,0.38);
+  --card-shadow: 0 8px 32px rgba(60,60,80,0.10), 0 1.5px 4px rgba(60,60,80,0.08);
+  --card-inner-shadow: 0 1px 8px 0 rgba(255,255,255,0.18) inset;
+  --text-color: #222;
+  --distance-gradient: linear-gradient(90deg, #007aff, #00e1ff);
+  --arrow-glow-start: rgba(0, 122, 255, 0.35);
+  --arrow-glow-mid: rgba(0, 122, 255, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-gradient: linear-gradient(135deg, #181a20 0%, #23243a 100%);
+    --card-bg: rgba(30,32,40,0.55);
+    --card-border: rgba(255,255,255,0.12);
+    --card-shadow: 0 16px 32px rgba(0,0,0,0.18), 0 8px 16px rgba(0,0,0,0.10);
+    --card-inner-shadow: 0 1px 8px 0 rgba(255,255,255,0.08) inset;
+    --text-color: #fff;
+    --distance-gradient: linear-gradient(90deg, #5fb8ff, #00e1ff);
+    --arrow-glow-start: rgba(95, 184, 255, 0.5);
+    --arrow-glow-mid: rgba(95, 184, 255, 0.35);
+  }
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-gradient);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 36px;
+  box-shadow: var(--card-shadow), var(--card-inner-shadow);
+  border: 1.5px solid var(--card-border);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  padding: 44px 32px 48px 32px;
+  text-align: center;
+  width: 320px;
+  max-width: 320px;
+  min-width: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.18s cubic-bezier(.4,0,.2,1), background 0.3s, border 0.3s, box-shadow 0.3s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.card:active, .card:focus {
+  transform: scale(0.98);
+  box-shadow: 0 4px 16px rgba(0,122,255,0.10), 0 0 0 2px rgba(255,255,255,0.22) inset;
+}
+
+#arrow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  margin: 0 auto 20px auto;
+  position: relative;
+  z-index: 1;
+}
+#arrow {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  max-width: 3.5rem;
+  max-height: 3.5rem;
+  transition: transform 0.8s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  z-index: 1;
+}
+#arrow svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px var(--arrow-glow-start)) drop-shadow(0 0 20px var(--arrow-glow-mid));
+}
+#arrow.active {
+  animation: pulseGlow 5s infinite cubic-bezier(.4,0,.2,1);
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px var(--arrow-glow-start)) drop-shadow(0 0 20px var(--arrow-glow-mid));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px var(--arrow-glow-start)) drop-shadow(0 0 32px var(--arrow-glow-mid));
+  }
+}
+
+#distance {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  background: var(--distance-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.4s cubic-bezier(.4,0,.2,1);
+  margin-bottom: 0.5rem;
+}
+#distance span.unit {
+  font-weight: 500;
+  font-size: 2.2rem;
+  margin-left: 0.25rem;
+  opacity: 0.85;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: currentColor;
+  color: rgba(0,0,0,0.65);
+  display: inline-block;
+}
+@media (prefers-color-scheme: dark) {
+  #distance span.unit {
+    color: rgba(255,255,255,0.85);
+  }
+}
+
+#details {
+  border-radius: 18px;
+  border: none;
+  padding: 0.7rem 1rem 0.6rem 1rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-top: 0.5rem;
+  white-space: pre-line;
+  box-shadow: 0 2px 8px rgba(60,60,80,0.04);
+  transition: color 0.3s;
+}
+.details-flight {
+  font-weight: 600;
+  display: block;
+}
+.details-altitude {
+  opacity: 0.85;
+  display: block;
+}
+.details-type {
+  opacity: 0.7;
+  display: block;
+}
+.details-error {
+  color: #d00;
+  opacity: 0.8;
+  font-weight: 500;
+  display: block;
+}
+.details-empty {
+  opacity: 0.7;
+  font-weight: 500;
+  display: block;
+}
