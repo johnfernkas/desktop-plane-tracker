@@ -20,4 +20,6 @@ app.get('/planes', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Proxy running at http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Proxy running at http://localhost:${PORT}`)
+);
