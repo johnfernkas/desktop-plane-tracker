@@ -162,7 +162,6 @@ body {
   color: var(--text-color);
   margin-top: 0.5rem;
   white-space: pre-line;
-  box-shadow: 0 2px 8px rgba(60, 60, 80, 0.04);
   transition: color 0.3s;
 }
 
