@@ -48,17 +48,17 @@ body {
   border: 1.5px solid var(--card-border);
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
-  width: 320px;
-  max-width: 320px;
+  width: 440px;
+  max-width: 440px;
   min-width: 0;
-  height: 320px;
-  max-height: 320px;
+  height: 440px;
+  max-height: 440px;
   min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 32px;
+  padding: 48px;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -123,7 +123,7 @@ body {
   display: inline-flex;
   align-items: baseline;
   justify-content: center;
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   font-weight: 600;
   letter-spacing: 0.2px;
   background: var(--distance-gradient);
@@ -136,7 +136,7 @@ body {
 
 #distance span.unit {
   font-weight: 500;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   margin-left: 0.4rem;
   opacity: 0.85;
   background: none;
@@ -157,7 +157,7 @@ body {
   border-radius: 18px;
   border: none;
   padding: 0.7rem 1rem 0.6rem 1rem;
-  font-size: 1.08rem;
+  font-size: 1.32rem;
   font-weight: 500;
   color: var(--text-color);
   margin-top: 0.5rem;
