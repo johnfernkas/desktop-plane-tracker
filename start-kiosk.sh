@@ -12,4 +12,4 @@ nohup http-server -p 8080 > static.log 2>&1 &
 sleep 2
 
 # Launch Chromium in kiosk mode, pointing to the frontend
-chromium-browser --kiosk --noerrdialogs --disable-infobars --disable-session-crashed-bubble --app=http://localhost:8080/desktop-plane-tracker/
+chromium-browser --kiosk --noerrdialogs --disable-infobars --disable-session-crashed-bubble --app=http://localhost:8080/
